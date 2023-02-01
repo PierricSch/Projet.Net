@@ -1,0 +1,60 @@
+﻿@using ASP.Server.Model
+@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    table,
+    td {
+        border: 1px solid #333;
+    }
+
+    thead,
+    tfoot {
+        background-color: #333;
+        color: #fff;
+    }
+
+
+</style>
+
+<div class="listeBooks">
+    <h1>Liste des livres:</h1>
+    <!-- la liste des genres est dans la variable Model qui est typé en ligne 3, elle correspond à 
+    la variable xxx dans View(xxx) du controller -->
+
+    <table>
+        <thead>
+            <tr>
+                <th> Name</th>
+                <th> Author</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>
+
+                        <form asp-controller="Book" asp-action="DeleteBook">
+                            <input type="hidden" name="id" value="@book.Id" />
+                            <input type="submit" value="Delete" style="width: 100%; margin-top: 50px"/>
+                        </form>
+                    </td>
+                </tr>
+
+
+
+            }
+
+        </tbody>
+
+    </table>
+
+ 
+</div>
+

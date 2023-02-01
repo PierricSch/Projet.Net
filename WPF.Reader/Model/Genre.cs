@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WPF.Reader.Model
+{
+    public class Genre
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public List<Book> BookNames { get; set; }
+
+        public Genre() { }
+
+        public Genre(int id, string name, List<Book> bookNames)
+        {
+            Id = id;
+            Name = name;
+            BookNames = bookNames;
+        }
+    }
+}
