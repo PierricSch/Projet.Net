@@ -6,6 +6,8 @@ using WPF.Reader.Model;
 using System.Threading;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.DependencyInjection;
+using WPF.Reader.Service;
 
 namespace WPF.Reader.ViewModel
 {
@@ -65,6 +67,7 @@ namespace WPF.Reader.ViewModel
             {
                 speechSynthesizer.Dispose();
             });
+
         }
 
         private void SpeechSynthesizer_StateChanged(object sender, StateChangedEventArgs e)
@@ -78,6 +81,7 @@ namespace WPF.Reader.ViewModel
         public ICommand speechButton { get; set; }
 
         public ICommand speechReset { get; set; }
+        public ICommand GoBack { get; set; }
 
     }
 

@@ -34,7 +34,15 @@ namespace ASP.Server.Api
 
         public ActionResult<List<Book>> GetBooks([Optional] List<int> GenreId,int limit = 10, int offset = 0)
         {
-            return libraryDbContext.Books.Include(x => x.Genre).Where(x => x.Genre.Where(y => GenreId.Contains(y.Id)).Intersect(x.Genre).Any()).Skip(offset).Take(limit).ToList();
+            if(GenreId.Count < 0)
+            {
+                return libraryDbContext.Books.Include(x => x.Genre).Where(x => x.Genre.Where(y => GenreId.Contains(y.Id)).Intersect(x.Genre).Any()).Skip(offset).Take(limit).ToList();
+
+            }
+            else
+            {
+                return libraryDbContext.Books.Include(x => x.Genre).Skip(offset).Take(limit).ToList();
+            }            
         }
 
         // - GetBook
