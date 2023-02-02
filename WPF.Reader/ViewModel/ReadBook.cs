@@ -61,6 +61,10 @@ namespace WPF.Reader.ViewModel
                          break;
                  }
              });
+            speechReset = new RelayCommand(speech =>
+            {
+                speechSynthesizer.Dispose();
+            });
         }
 
         private void SpeechSynthesizer_StateChanged(object sender, StateChangedEventArgs e)
@@ -72,6 +76,8 @@ namespace WPF.Reader.ViewModel
         bool IsReading { get; set; } = false;
 
         public ICommand speechButton { get; set; }
+
+        public ICommand speechReset { get; set; }
 
     }
 

@@ -26,7 +26,7 @@
         <TextBlock Text="{Binding CurrentReadBook.Title}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30"/>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Lecture / Pause" Command="{Binding DataContext.speechButton, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}" Width="200"/>
-            <Button Content="Lecture" Command="{Binding DataContext.speechButton, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}" Width="200"/>
+            <Button Content="Reset" Command="{Binding DataContext.speechButton, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}" Width="200"/>
 
         </StackPanel>
         <TextBox Text="{Binding CurrentReadBook.Content}" Grid.Row="3" Margin=" 10 5 10 5" ScrollViewer.CanContentScroll="True" FontSize="15" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True"/>
