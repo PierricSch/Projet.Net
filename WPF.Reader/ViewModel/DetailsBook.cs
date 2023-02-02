@@ -1,13 +1,17 @@
-﻿using System.ComponentModel;
+﻿using CommunityToolkit.Mvvm.DependencyInjection;
+using System.ComponentModel;
 using System.Windows.Input;
 using WPF.Reader.Model;
+using WPF.Reader.Service;
 
 namespace WPF.Reader.ViewModel
 {
     public class DetailsBook : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public ICommand ReadCommand { get; init; } = new RelayCommand(x => { /* A vous de définir la commande */ });
+        public ICommand ReadCommand { get; init; } = new RelayCommand(Book => { /* A vous de définir la commande */
+            Ioc.Default.GetRequiredService<INavigationService>().Navigate<ReadBook>(Book);
+        });
 
         // n'oublier pas faire de faire le binding dans DetailsBook.xaml !!!!
         public Book CurrentBook { get; init; }

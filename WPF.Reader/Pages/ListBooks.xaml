@@ -16,12 +16,23 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Title}" Margin="0 0 10 0"/>
-                        <Button Content="Détail" Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}"/>
+                        <Button Content="Détail" Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>            
         </ListBox>
-        
+        <ListBox ItemsSource="{Binding Genres}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" Margin="0 0 10 0"/>
+                        <Button Content="List des livres" Command="{Binding DataContext.DetailGenre, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
 
 
         <!--A vous de créer la liste avec le bon binding. Une <ListBox> fera l'affaire 
@@ -35,7 +46,6 @@
             Les propriété Command et CommandParameter pourrons vous aider ! 
             Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
             CommandParameter="{Binding .}"-->
-        
     </StackPanel>
 </Page>
 

@@ -5,20 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPF.Reader.Pages"
       mc:Ignorable="d" 
-      d:DataContext="{d:DesignInstance Type=vm:DetailsGenre, d:IsDesignTimeCreatable=True}"
+      d:DataContext="{d:DesignInstance Type=vm:InDesignDetailsGenre, d:IsDesignTimeCreatable=True}"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DetailsGenre">
     <StackPanel>
-        <ListBox ItemsSource="{Binding }" >
+        <TextBlock Text="{Binding CurrentGenre.Name}"/>
+        <ListBox ItemsSource="{Binding CurrentGenre.BookNames}" IsEnabled="False" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Title}" Margin="0 0 10 0"/>
-                        <Button Content="Détail" Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock Text="tesrt"></TextBlock>
     </StackPanel>
 </Page>

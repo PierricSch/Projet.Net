@@ -35,6 +35,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.2" />
     <PackageReference Include="Microsoft.OpenApi" Version="1.5.0" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.18.2" />
+    <PackageReference Include="System.Speech" Version="7.0.0" />
   </ItemGroup>
 
 </Project>

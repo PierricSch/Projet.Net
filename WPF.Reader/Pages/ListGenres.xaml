@@ -17,7 +17,7 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Name}" Margin="0 0 10 0"/>
-                        <Button Content="List des livres" Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}"/>
+                        <Button Content="List des livres" Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -22,7 +22,15 @@
 <div class="listeBooks">
     <h1>Liste des livres:</h1>
     <!-- la liste des genres est dans la variable Model qui est typé en ligne 3, elle correspond à 
-    la variable xxx dans View(xxx) du controller -->
+    la variable xxx dans View(xxx) du controller -->    
+
+    <fieldset>
+        @foreach (var genre in Model)
+        {
+            <input type="checkbox" name="test" />
+            <label> test </label>
+        }
+    </fieldset>
 
     <table>
         <thead>
@@ -32,29 +40,19 @@
             </tr>
         </thead>
         <tbody>
-
             @foreach (var book in Model)
             {
                 <tr>
                     <td>@book.Title</td>
                     <td>@book.Author</td>
                     <td>
-
                         <form asp-controller="Book" asp-action="DeleteBook">
                             <input type="hidden" name="id" value="@book.Id" />
                             <input type="submit" value="Delete" style="width: 100%; margin-top: 50px"/>
                         </form>
                     </td>
                 </tr>
-
-
-
             }
-
         </tbody>
-
-    </table>
-
- 
+    </table> 
 </div>
-

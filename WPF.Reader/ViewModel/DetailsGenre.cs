@@ -16,7 +16,7 @@ namespace WPF.Reader.ViewModel
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public ICommand ReadCommand { get; init; } = new RelayCommand(x => { /* A vous de définir la commande */ });
+
 
         // n'oublier pas faire de faire le binding dans DetailsBook.xaml !!!!
         public Genre CurrentGenre { get; init; }
@@ -25,8 +25,9 @@ namespace WPF.Reader.ViewModel
         {
             CurrentGenre = genre;
         }
-
-        public ObservableCollection<Book> Genres => Ioc.Default.GetRequiredService<LibraryService>().Books;
-
+        public class InDesignDetailsGenre : DetailsGenre
+        {
+            public InDesignDetailsGenre() : base(new Genre() /*{ Title = "Test Genre" }*/ ) { }
+        }
     }
 }

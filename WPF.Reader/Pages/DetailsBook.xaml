@@ -12,12 +12,36 @@
 
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="120" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding CurrentBook.Title}"/>
+        <StackPanel Margin="10 10 10 10">
+            <TextBlock Text="{Binding CurrentBook.Title}" FontSize="30" />
+            <TextBlock Text="{Binding CurrentBook.Author}" FontSize="20"/>
+            <TextBlock Text="{Binding CurrentBook.Price, StringFormat=Total: {0:C} }" FontSize="20" />
+
+
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="List genre :" />
+            <ListBox ItemsSource="{Binding CurrentBook.Genre}"  IsEnabled="False" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" Margin="0 0 10 0" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="Lire" Command="{Binding DataContext.ReadCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding CurrentBook}"/>
+
+        </StackPanel>
+
+
+
         <!-- il faut afficher les information du livre: Nom, Auteur, Prix, Genres-->
         <!-- Mais pas le contenu ! -->
         <!-- N'oublier pas le bouton pour aller lire le livre. La commande ReadCommand est faite pour ca ! -->
     </Grid>
+
 </Page>
